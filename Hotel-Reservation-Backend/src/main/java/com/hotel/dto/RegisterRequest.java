@@ -1,11 +1,26 @@
 package com.hotel.dto;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+
+
 public class RegisterRequest {
 
+	@NotBlank
+	(message = "Full name is required")
     private String fullName;
+	
+	@Email(message = "Enter a valid email")
+    @NotBlank(message = "Email is required")
     private String email;
-    private String password;
-    private String phone;
+	
+	 @Size(min = 6, message = "Password must contain at least 6 characters")
+	    private String password;
+
+	 @NotBlank(message = "Phone number is required")
+	    private String phone;
+
 
     public RegisterRequest() {
     }
