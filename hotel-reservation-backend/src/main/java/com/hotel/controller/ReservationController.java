@@ -3,6 +3,8 @@ package com.hotel.controller;
 import java.time.LocalDate;
 import java.util.List;
 
+import jakarta.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -42,8 +44,7 @@ public class ReservationController {
     @PostMapping
 
     public Reservation bookRoom(
-
-            @RequestBody ReservationRequest request){
+            @Valid @RequestBody ReservationRequest request){
 
         return reservationService.bookRoom(
 

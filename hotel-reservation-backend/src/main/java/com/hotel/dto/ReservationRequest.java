@@ -2,11 +2,22 @@ package com.hotel.dto;
 
 import java.time.LocalDate;
 
+import jakarta.validation.constraints.FutureOrPresent;
+import jakarta.validation.constraints.NotNull;
+
 public class ReservationRequest {
 
+    @NotNull(message = "Room ID is required")
     private Long roomId;
+
+    @NotNull(message = "User ID is required")
     private Long userId;
+
+    @NotNull(message = "Check-in date is required")
+    @FutureOrPresent(message = "Check-in date cannot be in the past")
     private LocalDate checkInDate;
+
+    @NotNull(message = "Check-out date is required")
     private LocalDate checkOutDate;
 
     public ReservationRequest() {
